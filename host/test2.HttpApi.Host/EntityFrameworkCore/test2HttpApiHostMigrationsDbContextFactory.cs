@@ -12,7 +12,7 @@ public class test2HttpApiHostMigrationsDbContextFactory : IDesignTimeDbContextFa
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<test2HttpApiHostMigrationsDbContext>()
-            .UseSqlServer(configuration.GetConnectionString("test2"));
+            .UseNpgsql(configuration.GetConnectionString("test2"));
 
         return new test2HttpApiHostMigrationsDbContext(builder.Options);
     }

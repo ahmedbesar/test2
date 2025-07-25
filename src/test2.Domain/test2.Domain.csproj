@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Ddd.Domain" Version="8.3.3" />
+    <PackageReference Include="Volo.Abp.EventBus.RabbitMQ" Version="8.3.3" />
+    <ProjectReference Include="..\test2.Application.Contracts\test2.Application.Contracts.csproj" />
     <ProjectReference Include="..\test2.Domain.Shared\test2.Domain.Shared.csproj" />
   </ItemGroup>
 

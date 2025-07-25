@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using test2.Products;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace test2.EntityFrameworkCore;
 
@@ -10,24 +12,15 @@ public static class test2DbContextModelCreatingExtensions
     {
         Check.NotNull(builder, nameof(builder));
 
-        /* Configure all entities here. Example:
-
-        builder.Entity<Question>(b =>
+        builder.Entity<Product>(b =>
         {
-            //Configure table & schema name
-            b.ToTable(test2DbProperties.DbTablePrefix + "Questions", test2DbProperties.DbSchema);
+            b.ToTable("Products");
 
             b.ConfigureByConvention();
 
-            //Properties
-            b.Property(q => q.Title).IsRequired().HasMaxLength(QuestionConsts.MaxTitleLength);
-
-            //Relations
-            b.HasMany(question => question.Tags).WithOne().HasForeignKey(qt => qt.QuestionId);
-
-            //Indexes
-            b.HasIndex(q => q.CreationTime);
+            b.Property(q => q.Name).IsRequired().HasMaxLength(100);
         });
-        */
+        
+  
     }
 }

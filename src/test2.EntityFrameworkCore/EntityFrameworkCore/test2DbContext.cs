@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using test2.Products;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -7,10 +8,8 @@ namespace test2.EntityFrameworkCore;
 [ConnectionStringName(test2DbProperties.ConnectionStringName)]
 public class test2DbContext : AbpDbContext<test2DbContext>, Itest2DbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
-
+    public DbSet<Product> Products { get; }
+    
     public test2DbContext(DbContextOptions<test2DbContext> options)
         : base(options)
     {
@@ -23,4 +22,5 @@ public class test2DbContext : AbpDbContext<test2DbContext>, Itest2DbContext
 
         builder.Configuretest2();
     }
+
 }
