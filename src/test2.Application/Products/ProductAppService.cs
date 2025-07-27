@@ -21,12 +21,7 @@ public class ProductAppService : test2AppService, IProductAppService
     }
     public async Task CreateAsync(ProductCreationDto input)
     {
-        var product = new Product
-        {
-            Name = input.Name,
-            StockCount = input.StockCount
-        };
-
+        var product = new Product(input.Name, input.StockCount);
         await _productRepository.InsertAsync(product);
     }
 }

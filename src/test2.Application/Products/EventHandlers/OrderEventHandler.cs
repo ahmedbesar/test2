@@ -1,10 +1,11 @@
 using System;
 using System.Threading.Tasks;
+using test2.Products.Events;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.EventBus.Distributed;
 
-namespace test2.Products.Events;
+namespace test2.Products.EventHandlers;
 
 public class OrderEventHandler : IDistributedEventHandler<OrderPlacedEto>,
     ITransientDependency
@@ -24,8 +25,7 @@ public class OrderEventHandler : IDistributedEventHandler<OrderPlacedEto>,
             return;
         }
 
-        product.StockCount = product.StockCount - 1;
-
+        product.DecreaseStock();
         await _productRepository.UpdateAsync(product);
     }
 }

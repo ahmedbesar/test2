@@ -1,6 +1,5 @@
 using Volo.Abp.Domain;
 using Volo.Abp.Modularity;
-using Volo.Abp.EventBus.RabbitMq;
 
 namespace test2;
 
@@ -8,7 +7,6 @@ namespace test2;
     typeof(AbpDddDomainModule),
     typeof(test2DomainSharedModule)
 )]
-[DependsOn(typeof(AbpEventBusRabbitMqModule))]
     public class test2DomainModule : AbpModule
 {
 
